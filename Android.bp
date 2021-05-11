@@ -1,5 +1,6 @@
 soong_namespace {
     imports: [
+        "vendor/qcom/opensource/display-commonsys-intf/sm8250",
         "hardware/qcom/display/gralloc",
         "hardware/qcom/display/libdebug",
     ]
