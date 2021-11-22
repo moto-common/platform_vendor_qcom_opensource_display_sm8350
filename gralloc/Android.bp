@@ -1,7 +1,8 @@
 //libgrallocutils
 soong_namespace {
     imports: [
-        "hardware/qcom/display",
+         "vendor/qcom/opensource/display-commonsys-intf/sm8250",
+         "vendor/qcom/opensource/display/sm8350",
     ],
 }
 cc_library_shared {
