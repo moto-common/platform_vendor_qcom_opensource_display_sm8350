@@ -19,6 +19,7 @@ cc_library_shared {
         "-Wno-missing-field-initializers",
         "-Wall",
         "-Werror",
+        "-Wno-format",
         "-fno-operator-names",
         "-Wno-unused-parameter",
         "-DLOG_TAG=\"SDE_DRM\"",
