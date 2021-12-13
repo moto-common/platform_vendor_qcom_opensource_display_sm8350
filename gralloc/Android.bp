@@ -1,7 +1,7 @@
 //libgrallocutils
 soong_namespace {
     imports: [
-         "vendor/qcom/opensource/display-commonsys-intf/sm8250",
+         "vendor/qcom/opensource/display-commonsys-intf/sm8350",
          "vendor/qcom/opensource/display/sm8350",
     ],
 }
@@ -15,6 +15,7 @@ cc_library_shared {
 
     header_libs: [
         "display_headers",
+        "qti_kernel_headers",
     ],
     shared_libs: [
         "libqdMetaData",
@@ -49,6 +50,7 @@ cc_library_shared {
     vendor: true,
     header_libs: [
         "display_headers",
+        "qti_kernel_headers",
     ],
     include_dirs: [
         "system/memory/libion/include",
@@ -89,7 +91,10 @@ cc_library_shared {
     vendor: true,
     relative_install_path: "hw",
 
-    header_libs: ["display_headers"],
+    header_libs: [
+        "display_headers",
+        "qti_kernel_headers",
+    ],
     shared_libs: [
         "libhidlbase",
         "libqdMetaData",
@@ -125,7 +130,10 @@ cc_library_shared {
     vendor: true,
     relative_install_path: "hw",
 
-    header_libs: ["display_headers"],
+    header_libs: [
+        "display_headers",
+        "qti_kernel_headers",
+    ],
     shared_libs: [
         "libhidlbase",
         "libqdMetaData",
@@ -163,7 +171,10 @@ cc_binary {
     },
     vendor: true,
     relative_install_path: "hw",
-    header_libs: ["display_headers"],
+    header_libs: [
+        "display_headers",
+        "qti_kernel_headers",
+    ],
     shared_libs: [
         "libhidlbase",
         "libqdMetaData",
