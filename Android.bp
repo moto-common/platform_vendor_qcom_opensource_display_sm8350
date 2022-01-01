@@ -1,6 +1,6 @@
 soong_namespace {
     imports: [
-        "vendor/qcom/opensource/display-commonsys-intf/sm8350",
+        "vendor/qcom/opensource/display-commonsys-intf",
     ]
 }
 
