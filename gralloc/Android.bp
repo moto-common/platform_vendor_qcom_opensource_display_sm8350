@@ -9,7 +9,7 @@ cc_library_shared {
 
     header_libs: [
         "display_headers",
-        "qti_kernel_headers",
+        "device_kernel_headers",
     ],
     shared_libs: [
         "libqdMetaData",
@@ -44,7 +44,7 @@ cc_library_shared {
     vendor: true,
     header_libs: [
         "display_headers",
-        "qti_kernel_headers",
+        "device_kernel_headers",
     ],
     include_dirs: [
         "system/memory/libion/include",
@@ -87,7 +87,7 @@ cc_library_shared {
 
     header_libs: [
         "display_headers",
-        "qti_kernel_headers",
+        "device_kernel_headers",
     ],
     shared_libs: [
         "libhidlbase",
@@ -126,7 +126,7 @@ cc_library_shared {
 
     header_libs: [
         "display_headers",
-        "qti_kernel_headers",
+        "device_kernel_headers",
     ],
     shared_libs: [
         "libhidlbase",
@@ -167,7 +167,7 @@ cc_binary {
     relative_install_path: "hw",
     header_libs: [
         "display_headers",
-        "qti_kernel_headers",
+        "device_kernel_headers",
     ],
     shared_libs: [
         "libhidlbase",
