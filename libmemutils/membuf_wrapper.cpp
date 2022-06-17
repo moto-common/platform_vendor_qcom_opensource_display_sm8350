@@ -42,7 +42,6 @@
 #include "membuf_wrapper.h"
 
 #ifndef TRUSTED_VM
-#include "common_log.h"
 
 /** adb log */
 #ifdef LOG_TAG
@@ -58,10 +57,6 @@
 #endif
 #define LOG_NDEBUG  0  // Define to enable LOGV
 
-#define DLOGI(...) do { LOGD(__VA_ARGS__); printf(__VA_ARGS__); printf("\n"); } while (0)
-#define DLOGE(...) do { LOGE(__VA_ARGS__); printf(__VA_ARGS__); printf("\n"); } while (0)
-#define DLOGW(...) do { LOGW(__VA_ARGS__); printf(__VA_ARGS__); printf("\n"); } while (0)
-#else
 #define DLOGI(...) printf("%s  I: %s: ", LOG_TAG, __FUNCTION__);printf(__VA_ARGS__); printf("\n");
 #define DLOGE(...) printf("%s  E: %s: ", LOG_TAG, __FUNCTION__);printf(__VA_ARGS__); printf("\n");
 #define DLOGW(...) printf("%s  W: %s: ", LOG_TAG, __FUNCTION__);printf(__VA_ARGS__); printf("\n");
