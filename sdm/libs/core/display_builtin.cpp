@@ -28,6 +28,7 @@
 #include <utils/utils.h>
 #include <utils/formats.h>
 #include <iomanip>
+#include <cmath>
 #include <algorithm>
 #include <functional>
 #include <map>
@@ -642,17 +643,35 @@ DisplayError DisplayBuiltIn::SetPanelBrightness(float brightness) {
   // -1.0f = off, 0.0f = min, 1.0f = max
   float level_remainder = 0.0f;
   int level = 0;
+  
+  int maxVal = 255; // Max slider value
+  int switchFunctionSlider = 40; // switch from linear to logarithmic at this value
+  
   if (brightness == -1.0f) {
     level = 0;
   } else {
     // Node only supports int level, so store the float remainder for accurate GetPanelBrightness
     float max = hw_panel_info_.panel_max_brightness;
     float min = hw_panel_info_.panel_min_brightness;
+
+    float switchFunction = switchFunctionSlider/(maxVal/max);
+
+    float b = max/logf(max);
+    float a = b * logf(switchFunction)/switchFunction;
+
+    float curVal = (brightness * (max - min)) + min;
     if (min >= max) {
       DLOGE("Minimum brightness is greater than or equal to maximum brightness");
       return kErrorDriverData;
     }
-    float t = (brightness * (max - min)) + min;
+    //float t = (brightness * (max - min)) + min;
+    float t;
+    if(curVal <= switchFunction) {
+        t = a * curVal;
+    } else {
+        t = b * logf(curVal);
+    }
+    DLOGE("max: %f; min: %f; a: %f; b: %f; curVal: %f; switchFunction: %f; t: %f", max, min, a, b, curVal, switchFunction, t);
     level = static_cast<int>(t);
     level_remainder = t - level;
   }
