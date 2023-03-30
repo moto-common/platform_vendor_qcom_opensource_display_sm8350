@@ -13,6 +13,7 @@ soong_config_module_type {
         "headless",
         "llvmsa",
         "gralloc4",
+        "brightness",
         "default",
     ],
     properties: [
@@ -50,6 +51,9 @@ qtidisplay_cc_defaults {
         },
         gralloc4: {
             cflags: ["-DTARGET_USES_GRALLOC4"],
+        },
+        brightness: {
+            cflags: ["-DBRIGHTNESS_LOG"],
         },
     },
 }
